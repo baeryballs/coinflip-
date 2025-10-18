@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Coin Flip</title> 
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background: #f0f0f0;
+      padding-top: 100px;
+    }
+
+    h1 {
+      color: #333;
+    }
+
+    #coin {
+      margin: 40px auto;
+      width: 150px;
+      height: 150px;
+      line-height: 150px;
+      border-radius: 50%;
+      background: gold;
+      color: #333;
+      font-size: 2em;
+      font-weight: bold;
+      box-shadow: 0 0 20px rgba(0,0,0,0.2);
+      transition: transform 0.5s ease-in-out;
+    }
+
+    .flip {
+      transform: rotateY(180deg);
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 1em;
+      cursor: pointer;
+      background: #007BFF;
+      color: white;
+      border: none;
+      border-radius: 5px;
+    }
+
+    button:hover {
+      background: #0056b3;
+    }
+  </style>
+</head>
+<body>
+  <h1>Flip the Coin!</h1>
+  <div id="coin">Heads</div>
+  <button onclick="flipCoin()">Flip Coin</button>
+
+  <script>
+    function flipCoin() {
+      const coin = document.getElementById('coin');
+      coin.classList.add('flip');
+
+      setTimeout(() => {
+        const result = Math.random() < 0.5 ? 'Heads' : 'Tails';
+        coin.textContent = result;
+        coin.classList.remove('flip');
+      }, 500);
+    }
+  </script>
+</body>
+</html>
